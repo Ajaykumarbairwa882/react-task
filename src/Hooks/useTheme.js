@@ -1,28 +1,10 @@
 import { useEffect, useState } from "react";
 
-const THEME_KEY = "github-theme";
-
-const getInitialTheme = () => {
-  if (typeof window === "undefined") {
-    return "dark";
-  }
-
-  const savedTheme = localStorage.getItem(THEME_KEY);
-  if (savedTheme === "light" || savedTheme === "dark") {
-    return savedTheme;
-  }
-
-  return window.matchMedia?.("(prefers-color-scheme: light)").matches
-    ? "light"
-    : "dark";
-};
-
 const useTheme = () => {
-  const [theme, setTheme] = useState(getInitialTheme);
+  const [theme, setTheme] = useState(() => localStorage.getItem("github-theme") || "dark");
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem(THEME_KEY, theme);
+    localStorage.setItem("github-theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {

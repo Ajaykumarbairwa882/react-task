@@ -5,14 +5,4 @@
     color-scheme: inherit;
     background-clip: padding-box;
   }
-
-  html[data-theme="dark"] select option {
-    background-color: #0f172a;
-    color: #f8fafc;
-  }
-
-  html[data-theme="light"] select option {
-    background-color: #ffffff;
-    color: #0f172a;
-  }
 }
