@@ -34,6 +34,33 @@ npm run dev
 npm run build
 ```
 
+## Deploy On Render
+
+This project is ready for Render as a static site.
+
+### Files Already Added
+
+- `render.yaml` for Render Blueprint deployment
+
+### Render Settings
+
+- **Type:** Static Site
+- **Build Command:** `npm run build`
+- **Publish Directory:** `dist`
+
+### Steps
+
+1. Push this project to GitHub.
+2. Open the Render dashboard.
+3. Click `New +` and choose `Blueprint`.
+4. Connect your GitHub repository.
+5. Render will read `render.yaml` automatically.
+6. Deploy the app.
+
+### Important Note
+
+This app uses `BrowserRouter`, so route refreshes need rewrite support. The `render.yaml` file already handles this by redirecting all routes to `index.html`.
+
 ## Project Structure
 
 - `src/Api` - API helper functions
